@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iRock - The Virtual Pet Rock</title>
+</head>
+
+<!-- onload event alerting message -->
+<body onload="alert('Hello, I am your pet rock.')">
+    <div style="margin-top: 100px; text-align: center;">
+        <img id="rockImg" onclick="touchRock()" src="rock.png" alt="">
+    </div>
+
+    
+
+
+<script>
+    // onclick event changing irock image.
+    function touchRock() {
+        var userName = prompt("What is your name?", "Enter your name here.");
+        if (userName) {
+            alert("It is good to meet you, " + userName + ".");
+            document.getElementById("rockImg").src = "rock_happy.png"
+        }
+    }
+
+
+// console.log(1+2);
+// console.log("do" + "nuts");
+console.log("1" + "2");
+
+// parseInt and parseFloat
+console.log(parseInt("1") + parseInt("2"));
+console.log(parseFloat("31.50"));
+
+
+
+function updateOrder() {
+    const TAXRATE = 0.925;
+    const DONUTPRICE = 0.50;
+    var numCakeDonuts = parseInt(document.getElementById("cakedonuts").value);
+    var numGlazedDonuts = parseInt(document.getElementById("glazeddonuts").value)
+
+    if (isNaN(numCakeDonuts))
+        numCakeDonuts = 0;
+    if (isNaN(numGlazedDonuts))
+        numGlazedDonuts = 0;
+    
+    var subTotal = (numCakeDonuts + numGlazedDonuts) * DONUTPRICE;
+    var tax = subTotal * TAXRATE;
+    var total = subTotal * tax;
+   console.log( document.getElementById("subtotal").value = "$" + subTotal.toFixed(2));
+   console.log(document.getElementById("tax").value = "$" + tax.toFixed(2)); 
+   console.log(document.getElementById("total").value = "$" + total.toFixed(2)); 
+
+}
+
+console.log(updateOrder);
+
+</script>
+
+</body>
+</html>

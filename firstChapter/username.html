@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input id="input1" type="text" placeholder="Please enter your name ..">
+
+    <button onclick="run()">Click me</button>
+    
+    <marquee id="name"></marquee>
+
+
+    <script>
+        
+        function run() {
+            let a = document.getElementById("input1").value;
+
+            let b = document.getElementById("name").innerHTML = a;
+        }
+
+
+    </script>
+</body>
+</html>
