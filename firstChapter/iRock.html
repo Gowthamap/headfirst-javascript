@@ -8,14 +8,15 @@
 </head>
 
 <!-- onload event alerting message -->
-<body onload="alert('Hello, I am your pet rock.')">
+<!-- <body onload="alert('Hello, I am your pet rock.')"> -->
+    <body onload="resizeRock(); greetUser();" onresize="resizeRock()">
     <div style="margin-top: 100px; text-align: center;">
         <img id="rockImg" onclick="touchRock()" src="rock.png" alt="">
     </div>
     
 
 <script>
-    // onclick event changing irock image.
+  //  onclick event changing irock image.
     function touchRock() {
         var userName = prompt("What is your name?", "Enter your name here.");
         if (userName) {
@@ -56,6 +57,18 @@ function updateOrder() {
 }
 
 console.log(updateOrder);
+
+// document.getElementById("rockImg").style.height = "100px";
+// document.getElementById("rockImg").style.width = "100px";
+
+// setTimeout("document.getElementById('rockImg').src =  'rock_happy.png'", 30000)
+
+
+function resizeRock() {
+    document.getElementById("rockImg").style.height = (document.body.clientHeight - 100) * 0.9;
+}
+
+
 
 </script>
 
