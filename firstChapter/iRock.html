@@ -17,13 +17,13 @@
 
 <script>
   //  onclick event changing irock image.
-    function touchRock() {
-        var userName = prompt("What is your name?", "Enter your name here.");
-        if (userName) {
-            alert("It is good to meet you, " + userName + ".");
-            document.getElementById("rockImg").src = "rock_happy.png"
-        }
-    }
+    // function touchRock() {
+    //     var userName = prompt("What is your name?", "Enter your name here.");
+    //     if (userName) {
+    //         alert("It is good to meet you, " + userName + ".");
+    //         document.getElementById("rockImg").src = "rock_happy.png"
+    //     }
+    // }
 
 
 // console.log(1+2);
@@ -68,6 +68,49 @@ function resizeRock() {
     document.getElementById("rockImg").style.height = (document.body.clientHeight - 100) * 0.9;
 }
 
+
+function greetUser() {
+    if (navigator.cookieEnabled)
+    userName = readCookie("irock_username");
+    if (userName) 
+        alert("Hello " + userName + ", I missed you.");
+    else 
+    alert("Hello, I am your pet rock.");
+}
+
+function touchRock() {
+        if (userName) {
+            alert("I like the attention, " + userName + ". Thank you.");
+        }
+        else {
+            userName = prompt("What is your name?", "Enter your name here.");
+            if (userName) {
+                alert("It is good to meet you, " + userName + ".");
+                if(navigator.cookieEnabled)
+                writeCookie("irock_username", userName, 5 * 365)
+                else 
+                alert("Sorry Cookies aren't supported/enabled in your browser. I won't remember you later.");
+            }
+        }
+        document.getElementById("rockImg").src = "rock_happy.png";
+        setTimeout("document.getElementById('rockImg').src = 'rock.png';", 5 * 60 * 1000);
+    }
+
+function writeCookie(name, value, days) {
+    // By default, there is no expiratin so the cookie is temporary
+    var expires = "";
+
+    // Specifying a number of days makes the cookie persistent
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toGMTString();
+    }
+
+    // Set the cookie to the name, value, and expiration date 
+    document.cookie = name + "=" + value + expires + "; path=/";
+
+}
 
 
 </script>
