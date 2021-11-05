@@ -1,22 +1,24 @@
-// let decision = 0;
+let decision = 0;
 
-// if (decision == 1) 
-// curScene = 2;
-// else 
-// curScene = 3;
+if (decision == 1) 
+curScene = 2;
+else 
+curScene = 3;
 
-// console.log(curScene);
+console.log(curScene);
 
-// let chosenDoor = prompt("Enter a chosenDoor");
+let chosenDoor = prompt("Enter a chosenDoor");
 
-// if (chosenDoor == "A") {
-//     prize = "donuts";
-//     alert("You won a box of donuts!")
-// } 
-// else {
-//     prize = "pet rock";
-//     alert("You won a pet rock!")
-// }
+if (chosenDoor == "A") {
+    prize = "donuts";
+    alert("You won a box of donuts!")
+} 
+else {
+    prize = "pet rock";
+    alert("You won a pet rock!")
+}
+
+
 
 let curScene = 1;
 decision = 2;
@@ -37,3 +39,56 @@ else if (curScene == 1) {
 }
 
 console.log(message);
+
+if (curScene != 6) {
+    alert("Thankfully, you haven't been eaten by the troll")
+}
+
+
+
+let a = 10;
+let b = 30;
+let c = 5;
+let d = false;
+var quote = "";
+
+if (a != 10)
+quote += "Some guy";
+else
+quote += "I";
+if (b == (a * 3)) {
+    if (c < (b / 6))
+    quote += " don't care for";
+    else if (c >= (b / 5))
+    quote += " can't remember";
+    else 
+    quote += " love";
+}
+else {
+    quote += " really hates";
+}
+if (!d) {
+    quote += " Stick Figure";
+}
+else {
+    quote += " Rock, Paper, Scissors";
+}
+
+alert(quote + " Adventure")
+
+
+
+
+// Nested if else statements
+let chosenCase = "A";
+
+if (chosenCase == "A") 
+console.log("opencase('A')");
+else if (chosenCase == "B")
+console.log("opencase('B')"); 
+else if (chosenCase == "C")
+console.log("opencase('C')"); 
+else if (chosenCase == "D")
+console.log("opencase('D')"); 
+else if (chosenCase == "E") 
+console.log("opencase('E')"); 
