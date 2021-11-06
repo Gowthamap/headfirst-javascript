@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iRock - The Virtual Pet Rock</title>
+</head>
+
+<!-- onload event alerting message -->
+<!-- <body onload="alert('Hello, I am your pet rock.')"> -->
+    <body onload="resizeRock(); greetUser();" onresize="resizeRock()">
+    <div style="margin-top: 100px; text-align: center;">
+        <img id="rockImg" onclick="touchRock()" src="rock.png" alt="">
+    </div>
+    
+
+<script>
+  //  onclick event changing irock image.
+    // function touchRock() {
+    //     var userName = prompt("What is your name?", "Enter your name here.");
+    //     if (userName) {
+    //         alert("It is good to meet you, " + userName + ".");
+    //         document.getElementById("rockImg").src = "rock_happy.png"
+    //     }
+    // }
+
+
+// console.log(1+2);
+// console.log("do" + "nuts");
+console.log("1" + "2");
+
+// parseInt and parseFloat
+console.log(parseInt("1") + parseInt("2"));
+console.log(parseFloat("31.50"));
+
+
+
+function updateOrder() {
+    const TAXRATE = 0.925;
+    const DONUTPRICE = 0.50;
+    var numCakeDonuts = parseInt(document.getElementById("cakedonuts").value);
+    var numGlazedDonuts = parseInt(document.getElementById("glazeddonuts").value)
+
+    if (isNaN(numCakeDonuts))
+        numCakeDonuts = 0;
+    if (isNaN(numGlazedDonuts))
+        numGlazedDonuts = 0;
+    
+    var subTotal = (numCakeDonuts + numGlazedDonuts) * DONUTPRICE;
+    var tax = subTotal * TAXRATE;
+    var total = subTotal * tax;
+   console.log( document.getElementById("subtotal").value = "$" + subTotal.toFixed(2));
+   console.log(document.getElementById("tax").value = "$" + tax.toFixed(2)); 
+   console.log(document.getElementById("total").value = "$" + total.toFixed(2)); 
+
+}
+
+console.log(updateOrder);
+
+// document.getElementById("rockImg").style.height = "100px";
+// document.getElementById("rockImg").style.width = "100px";
+
+// setTimeout("document.getElementById('rockImg').src =  'rock_happy.png'", 30000)
+
+
+function resizeRock() {
+    document.getElementById("rockImg").style.height = (document.body.clientHeight - 100) * 0.9;
+}
+
+
+function greetUser() {
+    if (navigator.cookieEnabled)
+    userName = readCookie("irock_username");
+    if (userName) 
+        alert("Hello " + userName + ", I missed you.");
+    else 
+    alert("Hello, I am your pet rock.");
+}
+
+function touchRock() {
+        if (userName) {
+            alert("I like the attention, " + userName + ". Thank you.");
+        }
+        else {
+            userName = prompt("What is your name?", "Enter your name here.");
+            if (userName) {
+                alert("It is good to meet you, " + userName + ".");
+                if(navigator.cookieEnabled)
+                writeCookie("irock_username", userName, 5 * 365)
+                else 
+                alert("Sorry Cookies aren't supported/enabled in your browser. I won't remember you later.");
+            }
+        }
+        document.getElementById("rockImg").src = "rock_happy.png";
+        setTimeout("document.getElementById('rockImg').src = 'rock.png';", 5 * 60 * 1000);
+    }
+
+function writeCookie(name, value, days) {
+    // By default, there is no expiratin so the cookie is temporary
+    var expires = "";
+
+    // Specifying a number of days makes the cookie persistent
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toGMTString();
+    }
+
+    // Set the cookie to the name, value, and expiration date 
+    document.cookie = name + "=" + value + expires + "; path=/";
+
+}
+
+
+</script>
+
+</body>
+</html>
