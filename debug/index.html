@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BSI Case 1: IQ Calculator</title>
+  </head>
+  <body onload="showIQClass(iqs);">
+    <img src="https://pngimg.com/uploads/brain/brain_PNG91.png" style="width: 100px;" alt="brain" />
+    <br />
+    <div id="output">Ready to calculate the average IQ.</div>
+
+    <script>
+
+        var iqs = [ 113, 97, 86, 75, 92, 105, 146, 77, 64, 114, 165, 96, 97, 88, 108 ];
+
+        function showIQClass(data) {
+            alert("Click OK to begin IQ calculation.");
+            document.getElementById("output").innerHTML = "You are dealing with <em>" +
+                calcIQClass(data) + "</em>.";
+        }
+
+        function calcIQClass(data) {
+            // Calculate the average IQ
+            var average = 0;
+            for (var i = 0; i < data.length; i++) {
+                average += data[i];
+                average = Math.floor(average / data.length);
+
+                // Return the classification of the average IQ
+                if (average < 20) {
+                    return "people who should kill their tvs";
+                }
+                else if (average < 50) {
+                    return "people who should hit the books";
+                }
+                else if (average < 70) {
+                    return "people who should hit the books";
+                }
+                else if (average < 81) {
+                    return "people who should consider brain exercises";
+                }
+                else if (average < 91) {
+                    return "people who could be considered dull"
+                }
+                else if (average < 111) {
+                    return "people who could be considered dull";
+                }
+                else if (average < 121) {
+                    return "people of superior intelligence"
+                }
+                else if (average < 141) {
+                    return "people of very superior intelligence";
+                }
+                else {
+                    return "geniuses";
+                }
+            }
+        
+        }
+    </script>
+  </body>
+</html>
